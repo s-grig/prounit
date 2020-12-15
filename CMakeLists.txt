@@ -63,14 +63,16 @@ if(UNIX AND NOT APPLE)
  include_directories(${Qt5Core_INCLUDE_DIRS})
  include_directories(sfml-system sfml-window sfml-graphics)
 
- target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
- target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
+ #target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
+ #target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
  #target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
  target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
  
  #target_link_libraries(unittest PRIVATE ${SFML_LIBRARIES})
  #target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
 endif(UNIX AND NOT APPLE)
+
+
 
 ################### WIN ##################################
 
@@ -88,6 +90,7 @@ endif(WIN32)
 
 #if(BUILD_TESTS)
   add_subdirectory(third-party/gtest)
+  include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
   file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
   add_executable(unit ${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp)
   target_include_directories(unit 

@@ -112,4 +112,4 @@ script:
   - cmake -DBUILD_TESTS=ON .. 
   - make
   - make project1_coverage
-  - ctest
+  - unit
