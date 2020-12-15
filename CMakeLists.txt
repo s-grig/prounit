@@ -101,4 +101,13 @@ endif(WIN32)
   target_link_libraries(unit PRIVATE unittest gtest_main)
   target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
   add_test(NAME unit COMMAND unit)
+
+  add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
+  target_compile_options(check PRIVATE --coverage)
+  target_link_libraries(check PRIVATE account transaction gtest_main gmock_main  --coverage)
+  add_test(NAME check COMMAND check)
+
+
+
+
 #endif()
