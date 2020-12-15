@@ -52,7 +52,7 @@ PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 #target_link_libraries(tests PRIVATE GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main unittest)
 
 #sfml 
-target_link_libraries(main PRIVATE FLAC OpenAL OpenGL Vorbis)
+#target_link_libraries(main PRIVATE FLAC OpenAL OpenGL Vorbis)
 target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
 ################### Linux  ###############################
 if(UNIX AND NOT APPLE)
