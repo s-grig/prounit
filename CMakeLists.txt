@@ -53,7 +53,7 @@ PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 #sfml 
 #target_link_libraries(main PRIVATE FLAC OpenAL OpenGL Vorbis)
-target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
+
 ################### Linux  ###############################
 if(UNIX AND NOT APPLE)
  target_compile_options(main PRIVATE -fPIC)
@@ -63,9 +63,9 @@ if(UNIX AND NOT APPLE)
  include_directories(${Qt5Core_INCLUDE_DIRS})
  include_directories(sfml-system sfml-window sfml-graphics)
 
- #target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
- #target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
- #target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
+ target_link_libraries(main PRIVATE ${Leptonica_LIBRARIES})
+ target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
+ target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
  target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
  
  #target_link_libraries(unittest PRIVATE ${SFML_LIBRARIES})
@@ -97,5 +97,6 @@ endif(WIN32)
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
   )
   target_link_libraries(unit PRIVATE unittest gtest_main)
+  target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
   add_test(NAME unit COMMAND unit)
 #endif()

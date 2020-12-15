@@ -111,5 +111,5 @@ script:
   - cd build
   - cmake -DBUILD_TESTS=ON .. 
   - make
-  - make project1_coverage
+  - make tests
   - unit
