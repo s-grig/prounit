@@ -1,7 +1,6 @@
 #include <drawer.hpp>
 #include <gtest/gtest.h> 
 
-
 TEST(Draw, lin) {
 	std::vector<double> x_vec_, y_vec_;
 	x_vec_ = { 15, 20, 25, 30 };

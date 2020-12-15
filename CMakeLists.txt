@@ -21,14 +21,10 @@ if(WIN32)
 endif(WIN32)
    
 if(UNIX AND NOT APPLE)
-   #find_package(SFML REQUIRED COMPONENTS system window graphics)
-   #find_package(Qt5Gui CONFIG REQUIRED)
-   #find_package(Qt5Widgets CONFIG REQUIRED)
-   find_package(Qt5Core CONFIG REQUIRED)
+    find_package(Qt5Core CONFIG REQUIRED)
 endif(UNIX AND NOT APPLE)
 
-add_library(unittest STATIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
+add_library(unittest STATIC ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/source/main.cpp
@@ -39,8 +35,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/source/drawer.cpp)
 #${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp)
 
 
-target_include_directories(main
-PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 #target_include_directories(tests
 #PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
