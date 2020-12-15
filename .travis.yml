@@ -111,5 +111,5 @@ script:
   - cd build
   - cmake -DBUILD_TESTS=ON .. 
   - make
-  - make tests
+  - make unittest
   - unit
