@@ -89,6 +89,8 @@ if(WIN32)
 endif(WIN32)
 
 #if(BUILD_TESTS)
+  enable_testing() 
+  
   add_subdirectory(third-party/gtest)
   include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
   file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
