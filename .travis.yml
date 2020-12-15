@@ -86,21 +86,30 @@ script:
   #- cmake -DBUILD_SHARED_LIBS=ON .
   #- make
   #- cd ..
-  - sudo apt-get install libgtest-dev
-  - cd /usr/src/googletest/googletest
-  - sudo mkdir build
-  - cd build
-  - sudo cmake ..
-  - sudo make
-  - sudo cp libgtest* /usr/lib/
-  - cd ..
-  - sudo rm -rf build
-  - sudo mkdir /usr/local/lib/googletest
-  - sudo ln -s /usr/lib/libgtest.a /usr/local/lib/googletest/libgtest.a
-  - sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/googletest/libgtest_main.a
+  #- sudo apt-get install libgtest-dev
+  #- cd /usr/src/googletest/googletest
+  #- sudo mkdir build
+  #- cd build
+  #- sudo cmake ..
+  #- sudo make
+  #- sudo cp libgtest* /usr/lib/
+  #- cd ..
+  #- sudo rm -rf build
+  #- sudo mkdir /usr/local/lib/googletest
+  #- sudo ln -s /usr/lib/libgtest.a /usr/local/lib/googletest/libgtest.a
+  #- sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/googletest/libgtest_main.a
   - cd /home/travis/build/AntonGrigorev/KP
   ######################## build main ###################################  
-  - mkdir build && cd build
-  - cmake ..
-  - cmake --build . --config Release
-  - echo "Main application testing is done"
+  #- mkdir build && cd build
+  #- cmake ..
+  #- cmake --build . --config Release
+  #- echo "Main application testing is done"
+  ############################################################################
+    # Build main and tests
+    ############################################################################
+  - mkdir -p build
+  - cd build
+  - cmake ${CMAKE_OPTIONS} -DCMAKE_CXX_FLAGS=${CXX_FLAGS} -DCMAKE_BUILD_TYPE=Coverage -DBUILD_TESTS=ON .. 
+  - make
+  - make project1_coverage
+  - ctest

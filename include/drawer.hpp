@@ -5,7 +5,6 @@
 #include <vector>
 #include <cmath>
 #ifndef INCLUDE_DRAWER_HPP_
-
 #define INCLUDE_DRAWER_HPP_
 
 class drawer {

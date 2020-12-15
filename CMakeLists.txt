@@ -51,7 +51,9 @@ PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 #target_link_libraries(tests PRIVATE GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main unittest)
 
-
+#sfml 
+target_link_libraries(main PRIVATE FLAC OpenAL OpenGL Vorbis)
+target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
 ################### Linux  ###############################
 if(UNIX AND NOT APPLE)
  target_compile_options(main PRIVATE -fPIC)
@@ -65,15 +67,16 @@ if(UNIX AND NOT APPLE)
  target_link_libraries(main PRIVATE ${Tesseract_LIBRARIES})
  #target_link_libraries(main PRIVATE ${SFML_LIBRARIES})
  target_link_libraries(main -llept -ltesseract -lQt5Widgets -lQt5Gui -lQt5Core -lsfml-graphics -lsfml-window -lsfml-system)
-
-
- target_link_libraries(unittest PRIVATE ${SFML_LIBRARIES})
- target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
+ 
+ #target_link_libraries(unittest PRIVATE ${SFML_LIBRARIES})
+ #target_link_libraries(unittest -lsfml-graphics -lsfml-window -lsfml-system)
 endif(UNIX AND NOT APPLE)
 
 ################### WIN ##################################
 
 if(WIN32) 
+ include_directories(sfml-system sfml-window sfml-graphics)
+
  target_link_libraries(main PRIVATE libtesseract)
  target_link_libraries(main PRIVATE sfml-system sfml-window sfml-graphics)
  target_link_libraries(main PRIVATE ${Qt5Widgets_LIBRARIES})
